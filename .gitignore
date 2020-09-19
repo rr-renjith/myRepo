@@ -1,0 +1,5 @@
+#node js related
+node_modules/
+
+#cypress examples
+integration/examples/
