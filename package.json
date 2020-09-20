@@ -9,6 +9,7 @@
     "cy:version": "cypress version",
     "cy:cache:list": "cypress cache list",
     "cy:run": "cypress run",
+    "cy:browserstack:run": "browserstack-cypress run",
     "cy:run:record": "cypress run --record",
     "cy:open": "cypress open"
   },
@@ -16,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browserstack-cypress-cli": "^1.4.0",
     "cypress": "^5.2.0"
   }
 }
