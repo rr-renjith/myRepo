@@ -4,7 +4,13 @@
   "description": "Running cypress tests",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:verify": "cypress verify",
+    "cy:info": "cypress info",
+    "cy:version": "cypress version",
+    "cy:cache:list": "cypress cache list",
+    "cy:run": "cypress run",
+    "cy:run:record": "cypress run --record",
+    "cy:open": "cypress open"
   },
   "keywords": [],
   "author": "",

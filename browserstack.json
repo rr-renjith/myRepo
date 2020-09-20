@@ -1,0 +1,32 @@
+{
+    "auth": {
+        "username": "renjith33",
+        "access_key": "4YxwsuuGiRBnnbBxbqmA"
+    },
+    "browsers": [
+        {
+            "browser": "chrome",
+            "os": "Windows 10",
+            "versions": [
+                "78"
+            ]
+        }
+    ],
+    "run_settings": {
+        "cypress_proj_dir": ".",
+        "project_name": "cypress_test",
+        "build_name": "test_1",
+        "exclude": [],
+        "parallels": "1",
+        "npm_dependencies": {},
+        "package_config_options": {},
+        "specs": [
+            "cypress/integration/sample_test/**"
+        ]
+    },
+    "connection_settings": {
+        "local": false,
+        "local_identifier": null
+    },
+    "disable_usage_reporting": false
+}
