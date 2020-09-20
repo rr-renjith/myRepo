@@ -18,7 +18,6 @@ override:
 defaults: &defaults
   script:
     #   ## print all Travis environment variables for debugging
-    - $(npm bin)/print-env TRAVIS
     - npm run cy:browserstack:run
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
