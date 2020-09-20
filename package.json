@@ -9,7 +9,7 @@
     "cy:version": "cypress version",
     "cy:cache:list": "cypress cache list",
     "cy:run": "cypress run",
-    "cy:browserstack:run": "browserstack-cypress run -u ${BROWSERSTACK_USERNAME} -k ${BROWSERSTACK_ACCESS_KEY}",
+    "cy:browserstack:run": "browserstack-cypress run",
     "cy:run:record": "cypress run --record",
     "cy:open": "cypress open"
   },
