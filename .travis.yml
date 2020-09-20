@@ -12,8 +12,8 @@ cache:
 
 addons:
   browserstack:
-    username: "${{BROWSERSTACK_USERNAME}}"
-    access_key: "${{BROWSERSTACK_ACCESS_KEY}}"
+    username: "${BROWSERSTACK_USERNAME}"
+    access_key: "${BROWSERSTACK_ACCESS_KEY}"
 
 override:
   - npm ci
