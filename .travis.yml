@@ -10,6 +10,11 @@ cache:
     - ~/.npm
     - ~/.cache
 
+addons:
+  browserstack:
+    username: "${{BROWSERSTACK_USERNAME}}"
+    access_key: "${{BROWSERSTACK_ACCESS_KEY}}"
+
 override:
   - npm ci
   - npm run cy:verify
