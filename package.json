@@ -10,7 +10,7 @@
     "cy:cache:list": "cypress cache list",
     "cy:run": "cypress run --browser=chrome --spec=cypress/integration/sample_test/** --config video=false",
     "cy:browserstack:run": "browserstack-cypress run",
-    "cy:run:record": "cypress run --record --key 364e7749-cec7-48ef-b10a-fdec4b659f33",
+    "cy:run:record": "cypress run --record --key 364e7749-cec7-48ef-b10a-fdec4b659f33 --spec=cypress/integration/sample_test/** --config video=false",
     "cy:open": "cypress open"
   },
   "keywords": [],
