@@ -4,6 +4,12 @@ node_js:
   #Node 10.3+ includes npm@6 which has good "npm ci" command
   - 10.8
 
+addons:
+  apt:
+    packages:
+      # needed by Cypress, not in Ubuntu 16+ by default
+      - libgconf-2-4
+
 cache:
   # cache both npm modules and Cypress binary
   directories:
@@ -18,7 +24,7 @@ override:
 defaults: &defaults
   script:
     #   ## print all Travis environment variables for debugging
-    - npm run cy:browserstack:run
+    - npm run cy:run
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
     - kill $(jobs -p) || true

@@ -8,7 +8,7 @@
     "cy:info": "cypress info",
     "cy:version": "cypress version",
     "cy:cache:list": "cypress cache list",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --config video=false",
     "cy:browserstack:run": "browserstack-cypress run",
     "cy:run:record": "cypress run --record",
     "cy:open": "cypress open"
