@@ -25,7 +25,7 @@
         ]
     },
     "connection_settings": {
-        "local": true,
+        "local": false,
         "local_identifier": "local_connection_1"
     },
     "disable_usage_reporting": false
