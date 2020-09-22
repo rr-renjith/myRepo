@@ -2,7 +2,7 @@
 
 describe('/home', () => {
     
-    it('visit url', () => {
+    it('visits url', () => {
         cy.visit('/')
     })
 
