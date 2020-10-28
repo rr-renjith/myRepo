@@ -1,4 +1,6 @@
 {
-  "baseUrl": "https://www.cypress.io/",
-  "projectId": "y8c18y"
+  "chromeWebSecurity": false,
+  "baseUrl": "https://hound.sosv2.net/",
+  "video": true,
+  "projectId": "3atjmh"
 }

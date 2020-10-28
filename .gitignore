@@ -1,2 +1,4 @@
 #node js related
 node_modules/
+cypress/videos/
+log/
