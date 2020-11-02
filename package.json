@@ -10,7 +10,7 @@
     "cy:cache:list": "cypress cache list",
     "cy:run": "cypress run --browser=chrome --spec=cypress/integration/users/login.spec.js --config video=false",
     "cy:browserstack:run": "browserstack-cypress run",
-    "cy:run:record": "cypress run --record --key=a9d1c578-00b2-43c3-a2eb-d61bff57bbbc --browser=chrome --spec=cypress/integration/users/login.spec.js",
+    "cy:run:record": "cypress run --record --key=364e7749-cec7-48ef-b10a-fdec4b659f33 --browser=chrome --spec=cypress/integration/users/login.spec.js",
     "cy:open": "cypress open"
   },
   "keywords": [],
