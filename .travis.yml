@@ -17,10 +17,8 @@ override:
 
 defaults: &defaults
   script:
-    - export COMMIT_INFO_MESSAGE="Testing Commit"
+    - export COMMIT_INFO_MESSAGE=$(git log -n 1 --pretty=%B $(cut -d " " -f 2 <<< $(git log -n 1 --pretty=%B)))
     - echo $COMMIT_INFO_MESSAGE
-    - export MESSAGE=$(git log -n 1 --pretty=%B $(cut -d " " -f 2 <<< $(git log -n 1 --pretty=%B)))
-    - echo $MESSAGE
     #- npm run cy:run:record
     - kill $(jobs -p) || true
 
