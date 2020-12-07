@@ -18,6 +18,7 @@ override:
 defaults: &defaults
   script:
     - export COMMIT_INFO_MESSAGE="Testing Commit"
+    - echo $COMMIT_INFO_MESSAGE
     #- npm run cy:run:record
     - kill $(jobs -p) || true
 
