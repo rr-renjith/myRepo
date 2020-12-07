@@ -17,7 +17,7 @@ override:
 
 defaults: &defaults
   script:
-    - echo $TRAVIS_EVENT_TYPE
+    - COMMIT_INFO_MESSAGE="Testing Commit"
     - npm run cy:run:record
     - kill $(jobs -p) || true
 
