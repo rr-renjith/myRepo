@@ -17,7 +17,7 @@ override:
 
 defaults: &defaults
   script:
-    - bash ./get_commit_message.sh
+    - export COMMIT_INFO_MESSAGE=$(bash ./get_commit_message.sh)
     - echo $COMMIT_INFO_MESSAGE
     #- npm run cy:run:record
     - kill $(jobs -p) || true
