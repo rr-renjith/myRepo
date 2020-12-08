@@ -17,8 +17,11 @@ override:
 
 defaults: &defaults
   script:
-    - export COMMIT_INFO_MESSAGE=$(git log -n 1 --pretty=%B $(cut -d " " -f 2 <<< $(git log -n 1 --pretty=%B)))
-    - echo $TRAVIS_COMMIT_MESSAGE
+    - export COMMIT_INFO_MESSAGE=$(node -pe 'JSON.parse(process.argv[1]).builds.find(i => i.repository.name === "test_travis").commit.message' \
+"$(curl -s -H "Travis-API-Version: 3" \
+-H "User-Agent: API Explorer" \
+-H "Authorization: token MTDTD5ilUbB5_1jGnM3yFA" \
+  https://api.travis-ci.com/owner/rr-renjith/active))
     - echo $COMMIT_INFO_MESSAGE
     #- npm run cy:run:record
     - kill $(jobs -p) || true
