@@ -19,7 +19,7 @@ defaults: &defaults
   script:
     - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
     - echo $COMMIT_INFO_MESSAGE
-    #- npm run cy:run:record
+    - npm run cy:run:record
     - kill $(jobs -p) || true
 
 jobs:
