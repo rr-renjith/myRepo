@@ -17,9 +17,9 @@ override:
 stages:
   - name: set variables
   - name: e2e tests 1
-    if: env(PARENT_BUILD) = test_travis
+    if: commit_message =~ /.*test_travis.*/
   - name: e2e tests 2
-    if: env(PARENT_BUILD) = asset-hound
+    if: commit_message =~ /.*other.*/
 
 jobs:
   include:
