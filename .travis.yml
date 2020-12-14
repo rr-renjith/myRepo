@@ -1,8 +1,7 @@
 language: node_js
 
 node_js:
-  #Node 10.3+ includes npm@6 which has good "npm ci" command
-  - 10.8
+  - 14
 
 cache:
   # cache both npm modules and Cypress binary
@@ -15,16 +14,24 @@ override:
   - npm run cy:verify
   - npm run cy:info
 
-defaults: &defaults
-  script:
-    - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
-    - echo $COMMIT_INFO_MESSAGE
-    - npm run cy:run:record
-    - kill $(jobs -p) || true
+stages:
+  - name: set variables
+  - name: e2e tests 1
+    if: env(COMMIT_INFO_MESSAGE) = test-travis
+  - name: e2e tests 2
+    if: env(COMMIT_INFO_MESSAGE) = asset-hound
 
 jobs:
   include:
-    - stage: test
+    - stage: set variables
       env:
         - STAGE_NAME="Tests on chrome"
-      <<: *defaults
+        - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
+    - stage: e2e tests 1
+      script: 
+        - npm run cy:run:record
+        - kill $(jobs -p) || true
+    - stage: e2e tests 2
+      script: 
+        - npm run cy:run:sos
+        - kill $(jobs -p) || true
