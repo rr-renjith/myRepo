@@ -19,6 +19,7 @@ stages:
     if: commit_message =~ /.*test_travis.*/
   - name: test2
     if: commit_message =~ /.*other.*/
+
 jobs:
   include:
     - env: STAGE_NAME="Tests on chrome"
@@ -30,5 +31,7 @@ jobs:
         - kill $(jobs -p) || true
     - stage: test2
       script:
+        - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
+        - echo $COMMIT_INFO_MESSAGE
         - npm run cy:run:sos
         - kill $(jobs -p) || true
