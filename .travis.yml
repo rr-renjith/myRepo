@@ -20,18 +20,17 @@ stages:
   - name: test2
     if: commit_message =~ /.*other.*/
 
+_shared_job: &set-message
+  - env: STAGE_NAME="Tests on chrome"
+  - script:
+    - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
+    - kill $(jobs -p) || true
+
 jobs:
   include:
-    - env: STAGE_NAME="Tests on chrome"
     - stage: test1
-      script:
-        - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
-        - echo $COMMIT_INFO_MESSAGE
-        - npm run cy:run:record
-        - kill $(jobs -p) || true
+      <<: *set-message
+      script: npm run cy:run:record
     - stage: test2
-      script:
-        - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
-        - echo $COMMIT_INFO_MESSAGE
-        - npm run cy:run:sos
-        - kill $(jobs -p) || true
+      <<: *set-message
+      script: npm run cy:run:sos
