@@ -14,13 +14,12 @@ override:
   - npm run cy:verify
   - npm run cy:info
 
-env: STAGE_NAME="Tests on chrome"
-script: 
-  - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
-  - echo $COMMIT_INFO_MESSAGE
-
 jobs:
   include:
+    - env: STAGE_NAME="Tests on chrome"
+    - script: 
+      - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
+      - echo $COMMIT_INFO_MESSAGE
     - if: commit_message =~ /.*test_travis.*/
       script:
         - npm run cy:run:record
