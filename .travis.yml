@@ -21,8 +21,8 @@ stages:
     if: commit_message =~ /.*other.*/
 
 _shared_job: &set-message
-  - env: STAGE_NAME="Tests on chrome"
-  - script:
+  env: STAGE_NAME="Tests on chrome"
+  script:
     - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
     - kill $(jobs -p) || true
 
