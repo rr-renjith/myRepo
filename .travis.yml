@@ -20,7 +20,7 @@ stages:
   - name: test2
     if: commit_message =~ /.*other.*/
   
-_set-message: &set-message
+set-message: &set-message
   script:
     - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
 
