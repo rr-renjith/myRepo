@@ -20,7 +20,7 @@ stages:
   - name: test2
     if: commit_message =~ /.*other.*/
   
-set-message: &set-message
+set_message: &set_message
   script:
     - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
 
@@ -29,10 +29,10 @@ jobs:
     - stage: test1
       env:
         - STAGE_NAME="test on chrome"
-      <<: *set-message
+      <<: *set_message
       script: npm run cy:run:record
     - stage: test2
       env:
         - STAGE_NAME="test on chrome"
-      <<: *set-message
+      <<: *set_message
       script: npm run cy:run:sos
