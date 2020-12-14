@@ -19,21 +19,20 @@ stages:
     if: commit_message =~ /.*test_travis.*/
   - name: test2
     if: commit_message =~ /.*other.*/
-
-_set-env: &set-env
-  env: STAGE_NAME="Tests on chrome"
+  
 _set-message: &set-message
   script:
     - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
-    - kill $(jobs -p) || true
 
 jobs:
   include:
     - stage: test1
-      <<: *set-env
+      env:
+        - STAGE_NAME="test on chrome"
       <<: *set-message
       script: npm run cy:run:record
     - stage: test2
-      <<: *set-env
+      env:
+        - STAGE_NAME="test on chrome"
       <<: *set-message
       script: npm run cy:run:sos
