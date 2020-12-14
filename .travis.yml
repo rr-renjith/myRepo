@@ -26,7 +26,7 @@ jobs:
     - stage: set variables
       env:
         - STAGE_NAME="Tests on chrome"
-        - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
+      script: export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
     - stage: e2e tests 1
       script: 
         - npm run cy:run:record
