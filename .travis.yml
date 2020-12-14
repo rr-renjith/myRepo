@@ -26,7 +26,9 @@ jobs:
     - stage: set variables
       env:
         - STAGE_NAME="Tests on chrome"
-      script: export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
+      script: 
+        - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
+        - echo $COMMIT_INFO_MESSAGE
 
     - stage: e2e tests 1
       script: 
