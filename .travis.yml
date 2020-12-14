@@ -17,7 +17,7 @@ override:
 stages:
   - name: set variables
   - name: e2e tests 1
-    if: env(COMMIT_INFO_MESSAGE) = test-travis
+    if: env(COMMIT_INFO_MESSAGE) = test_travis
   - name: e2e tests 2
     if: env(COMMIT_INFO_MESSAGE) = asset-hound
 
