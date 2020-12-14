@@ -17,18 +17,16 @@ override:
 stages:
   - name: set variables
   - name: e2e tests 1
-    if: env(COMMIT_INFO_MESSAGE) = test_travis
+    if: env(PARENT_BUILD) = test_travis
   - name: e2e tests 2
-    if: env(COMMIT_INFO_MESSAGE) = asset-hound
+    if: env(PARENT_BUILD) = asset-hound
 
 jobs:
   include:
     - stage: set variables
       env:
         - STAGE_NAME="Tests on chrome"
-      script:
-        - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
-        - echo $COMMIT_INFO_MESSAGE
+      script: sh ./get_commit_message.sh
 
     - stage: e2e tests 1
       script: 
