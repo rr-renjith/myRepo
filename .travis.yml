@@ -5,14 +5,13 @@ node_js:
 
 cache:
   # cache both npm modules and Cypress binary
-  npm: true
   directories:
+    - ~/.npm
     - ~/.cache
-
 override:
-  - npm ci
-  - npm run cy:verify
-  - npm run cy:info
+    - npm ci
+    - npm run cy:verify
+    - npm run cy:info
 
 stages:
   - name: test1
@@ -21,7 +20,7 @@ stages:
     if: commit_message =~ /.*other.*/
   
 set_message: &set_message
-  script:
+  before_script:
     - export COMMIT_INFO_MESSAGE=$(sh ./get_commit_message.sh)
 
 jobs:
